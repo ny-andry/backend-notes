@@ -28,9 +28,9 @@ mongoose
     console.log("connected");
 
     const note = new Note({
-      content: "HTML is Easy",
+      content: "More content my friend",
       date: new Date(),
-      important: true,
+      important: false,
     });
 
     return note.save();
