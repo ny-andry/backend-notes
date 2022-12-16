@@ -1,3 +1,4 @@
+// test this with node mongo.js <password>
 const mongoose = require("mongoose");
 
 if (process.argv.length < 3) {
@@ -20,6 +21,7 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model("Note", noteSchema);
 
+// Creating a new note
 mongoose
   .connect(url)
   .then((result) => {
@@ -38,3 +40,19 @@ mongoose
     return mongoose.connection.close();
   })
   .catch((err) => console.log(err));
+
+// print all the notes in the database
+// mongoose
+//   .connect(url)
+//   .then(() => {
+//     Note.find({}).then((result) => {
+//       console.log(result);
+//       result.forEach((note) => {
+//         console.log(note);
+//       });
+//       mongoose.connection.close();
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
